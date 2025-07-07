@@ -3,19 +3,20 @@ import Gameover from "./Gameover";
 import Card from "./Card";
 
 import { useData } from "../hooks/fetch";
+import { getShuffled } from "../hooks/sort";
 
 const Gameboard = () => {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(score);
   const [isFlipped, setIsFlipped] = useState(new Set());
   const [isGameOver, setIsGameOver] = useState(false);
-  const [data, setdata] = useState(null);
+  const [data, setData] = useState(null);
 
   const dataFetched = useData();
 
   useEffect(() => {
     if (dataFetched !== null) {
-      setdata(dataFetched);
+      setData(dataFetched);
     }
   }, [dataFetched]);
 
@@ -27,12 +28,15 @@ const Gameboard = () => {
       }
     } else {
       setIsFlipped(new Set(isFlipped).add(id));
+      const shuffledData = getShuffled(data);
+      setData(shuffledData);
       setScore((s) => s + 1);
     }
   };
 
   useEffect(() => {
     // TODO: remove this Effect (its only here for testing purposes)
+
     console.log(isGameOver);
   }, [isGameOver, isFlipped]);
 
