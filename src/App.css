@@ -7,6 +7,11 @@
   justify-content: center;
 }
 
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
