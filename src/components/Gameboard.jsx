@@ -34,11 +34,13 @@ const Gameboard = () => {
     }
   };
 
-  useEffect(() => {
-    // TODO: remove this Effect (its only here for testing purposes)
-
-    console.log(isGameOver);
-  }, [isGameOver, isFlipped]);
+  const handleRestart = () => {
+    setScore(0);
+    setIsFlipped(new Set());
+    setIsGameOver(false);
+    const shuffledData = getShuffled(data);
+    setData(shuffledData);
+  };
 
   return (
     <>
@@ -60,7 +62,7 @@ const Gameboard = () => {
               onClick={() => handleFlip(item.id)}
             />
           ))}
-        {isGameOver && <Gameover isGameOver={isGameOver} />}
+        {isGameOver && <Gameover onRestart={handleRestart} score={score} />}
       </div>
     </>
   );
