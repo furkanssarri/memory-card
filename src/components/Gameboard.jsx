@@ -41,19 +41,28 @@ const Gameboard = () => {
   }, [isGameOver, isFlipped]);
 
   return (
-    <div className="game-board">
-      {Array.isArray(data) &&
-        data.length > 0 &&
-        data.map((item) => (
-          <Card
-            key={item.id}
-            name={item.name}
-            image={item.image}
-            onClick={() => handleFlip(item.id)}
-          />
-        ))}
-      {isGameOver && <Gameover isGameOver={isGameOver} />}
-    </div>
+    <>
+      <header>
+        <h1>Memory Card</h1>
+        <div className="scoreboard">
+          <p>Score: {score}</p>
+          <p>Best score: {bestScore}</p>
+        </div>
+      </header>
+      <div className="game-board">
+        {Array.isArray(data) &&
+          data.length > 0 &&
+          data.map((item) => (
+            <Card
+              key={item.id}
+              name={item.name}
+              image={item.image}
+              onClick={() => handleFlip(item.id)}
+            />
+          ))}
+        {isGameOver && <Gameover isGameOver={isGameOver} />}
+      </div>
+    </>
   );
 };
 
