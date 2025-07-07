@@ -8,7 +8,7 @@ this is a simple "do-not-click-the-same-card-twice" type of memory card game. th
 
 ## live demo
 
-the live demo will be made available Soon™.
+a working demo can be found [here](https://furkanssarri-memory-card.netlify.app/).
 
 ## api
 
