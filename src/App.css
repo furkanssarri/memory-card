@@ -51,6 +51,23 @@ header {
   background-color: #0056b3;
 }
 
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-icon {
+  font-size: 1.2rem;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
